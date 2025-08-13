@@ -5,8 +5,13 @@ A full-stack Django web application featuring user registration, login, profiles
 <img width="940" height="512" alt="image" src="https://github.com/user-attachments/assets/46fca06d-0fe5-466f-9ac5-8c3251d9b5b2" />
 
 *Recommendation: Add a nice screenshot of your user page here. Upload the image to your repository and replace the text above with the link.*
+<img width="640" height="824" alt="image" src="https://github.com/user-attachments/assets/8f301cf3-2493-4d59-bcaf-353b0715cdc3" />
 
 ---
+<img width="437" height="460" alt="image" src="https://github.com/user-attachments/assets/d452a925-8c54-45c1-8da4-d7d3f98f9d81" />
+
+<img width="1897" height="385" alt="image" src="https://github.com/user-attachments/assets/973f3287-f673-452f-99e5-859af8bb1405" />
+
 
 ## 🚀 Overview
 
