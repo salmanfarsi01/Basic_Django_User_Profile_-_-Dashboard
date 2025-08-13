@@ -7,7 +7,7 @@ from django.contrib import messages
 from .forms import RegistrationForm, ProfileUpdateForm, ThoughtForm
 from .models import Profile, Thought
 
-# The registration view that was missing
+# The registration view that the server is looking for
 def register(request):
     if request.user.is_authenticated:
         return redirect('user_page')
@@ -16,23 +16,22 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            Profile.objects.create(user=user)  # Create the profile automatically
+            Profile.objects.create(user=user)  # This creates the profile for new users
             login(request, user)
             messages.success(request, "Registration successful.")
             return redirect("user_page")
-        messages.error(request, "Unsuccessful registration. Invalid information.")
     else:
         form = RegistrationForm()
     return render(request=request, template_name="users/register.html", context={"register_form": form})
 
 
-# The secure and improved user page view
+# The secure and robust user page view
 @login_required
 def user_page(request):
-    profile = request.user.profile
+    # This line fixes the "User has no profile" error for old users
+    profile, created = Profile.objects.get_or_create(user=request.user)
 
     if request.method == 'POST':
-        # Check which form was submitted
         if 'update_picture' in request.POST:
             p_form = ProfileUpdateForm(request.POST, request.FILES, instance=profile)
             if p_form.is_valid():
